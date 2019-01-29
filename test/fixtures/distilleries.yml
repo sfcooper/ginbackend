@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  distillery_name: MyString
+  snippet: MyString
+  description: MyText
+  website: MyString
+  country: MyString
+
+two:
+  distillery_name: MyString
+  snippet: MyString
+  description: MyText
+  website: MyString
+  country: MyString
