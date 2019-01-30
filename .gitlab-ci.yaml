@@ -13,6 +13,11 @@ variables:
   DISABLE_SPRING: 1
   DB_HOST: postgres
 
+stages:
+  - build
+  - test
+  - deploy
+
 before_script:
   # Install node and some other deps
   - curl -sL https://deb.nodesource.com/setup_8.x | bash -
@@ -34,10 +39,6 @@ before_script:
 - bundle exec rails db:create RAILS_ENV=test
   - bundle exec rails db:schema:load RAILS_ENV=test
   - bundle exec webpack
-
-stages:
-  - test
-  - deploy
 
 Deploy Production:
   stage: deploy

@@ -1,5 +1,7 @@
 class Gin < ApplicationRecord
-    has_one :distillery
+    belongs_to :distillery
+
+    validates :gin_name, :snippet, :description, presence: true 
 
         #allows for human/seo friendly URLs. Takes the name field and writes to the slug field  
         extend FriendlyId
