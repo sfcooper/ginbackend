@@ -12,7 +12,7 @@ class GinsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create gin" do
     assert_difference('Gin.count') do
-      post gins_url, params: { gin: { abv: @gin.abv, description: @gin.description, snippet: @gin.snippet, title: @gin.title } }, as: :json
+      post gins_url, params: { gin: { abv: @gin.abv, description: @gin.description, snippet: @gin.snippet, gin_name: @gin.gin_name } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class GinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update gin" do
-    patch gin_url(@gin), params: { gin: { abv: @gin.abv, description: @gin.description, snippet: @gin.snippet, title: @gin.title } }, as: :json
+    patch gin_url(@gin), params: { gin: { abv: @gin.abv, description: @gin.description, snippet: @gin.snippet, gin_name: @gin.gin_name } }, as: :json
     assert_response 200
   end
 
