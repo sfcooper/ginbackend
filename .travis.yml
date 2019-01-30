@@ -1,0 +1,22 @@
+language: ruby
+rvm:
+- 2.6.0
+before_script:
+- bundle exec rake db:create --all
+- bundle exec rake db:migrate
+script:
+- bundle exec rake ci:tests
+services:
+- postgresql
+notifications:
+  email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: h5r7WiBukEMjEHBkvjv7yAbYBzkPhs1EyT+Y3SvdJU1iXkj6I+fBrDcZmnHZAUfWqzILGx79alRBbEUqd98juLtM+/vXLiX1nEbVYDbob8fhrYcFMGIO1zfTPdwYV+8rnlq7qStzJ0bPSA5xstcWaKVzXGGi5B7RzZdhuDfd0FwYXB9BmcOz1VQQMg6hxsuDceUYhGE8I/1DKTzrX4H6m1uVxuCbBUr3sO/Hze+iMXhtz6dfauanMg7O4xyGGIi/no/qNy80sJeDIQCAVwbdAmP6IEGtnPob38nqSTB8YwTJvC6kI/C1Z09q4ENqIJ+Bkt7LvxiWu9sgiYuNtuOFBHphVY+3bKp5fGuV8LbG0+2eFZBhregqGDgnreYMpZ33MnM8S5fDCxttGob4KGxmT1LdKZqjpVzIetnmbDopp0XufHVBnwkPjjLXpLcyfTSXLmL+jzNM56wLDzZ9lAhy2oA0Z+pAc35fIeJ5j/lCcYauv8ivtPW2pRmWGPwbIQ8wlXC5IxuDFyxUxs8BZIG2QowgZHE3p35/GG1k9BQxuaxFSgwWUEm6rwsZddRjshzu8mJYZJeP9mK8k3Vzn9BFXXkfY/Sh9TH48WCTBBCoZYMlXwXsP7TWvvjcoA8ETTvoGOX8dDObuh+WPO5LNPxe80TtnU8d89hqw3SynaANljc=
+  app:
+    master: ginbackend
+  on:
+    repo: sfcooper/ginbackend
+  run:
+  - rails db:migrate
