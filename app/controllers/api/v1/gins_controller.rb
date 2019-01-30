@@ -46,6 +46,6 @@ class Api::V1::GinsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def gin_params
-      params.require(:gin).permit(:gin_name, :snippet, :description, :abv)
+      params.require(:gin).permit(:gin_name, :snippet, :description, :abv, distillery_id:[])
     end
 end
