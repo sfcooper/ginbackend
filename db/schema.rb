@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_29_180831) do
+ActiveRecord::Schema.define(version: 2019_01_31_084852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2019_01_29_180831) do
     t.datetime "updated_at", null: false
     t.integer "distillery_id"
     t.string "slug"
+    t.boolean "alcoholic"
   end
 
+  add_foreign_key "gins", "distilleries", name: "gins_distillery_id_fkey"
 end

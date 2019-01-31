@@ -6,7 +6,7 @@ class Gin < ApplicationRecord
     include AlgoliaSearch
 
     algoliasearch do
-      # all attributes will be sent
+      attributesForFaceting [:abv]
     end
 
     #allows for human/seo friendly URLs. Takes the name field and writes to the slug field  
