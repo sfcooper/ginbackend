@@ -1,5 +1,7 @@
 class Gin < ApplicationRecord
     belongs_to :distillery
+    has_many :botanicals_gin
+    has_many :botanicals, through: :botanicals_gin
 
     validates :gin_name, :snippet, :description, presence: true
 
