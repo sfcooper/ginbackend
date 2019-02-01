@@ -1,9 +1,22 @@
 class Gin < ApplicationRecord
-    belongs_to :distillery
+
+    #determines if gin is alcoholic or not
+    before_create :is_alcoholic
+
+    has_one :distillery
     has_many :botanicals_gin
     has_many :botanicals, through: :botanicals_gin
 
     validates :gin_name, :snippet, :description, presence: true
+    validates :gin_name, uniqueness: true
+    
+    def is_alcoholic
+      if abv == 0.0
+        self.alcoholic = false
+      else
+        self.alcoholic = true
+      end
+    end
 
     include AlgoliaSearch
 
