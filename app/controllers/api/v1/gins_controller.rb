@@ -4,13 +4,13 @@ class Api::V1::GinsController < ApplicationController
   # GET /gins
   def index
     @gins = Gin.order(gin_name: 'ASC')
-
-    render json: @gins
+  #include exposes associated botanicals and distllery in the json
+    render json: @gins, include: ['botanicals', 'distillery']
   end
 
   # GET /gins/1
   def show
-    render json: @gin
+    render json: @gin, include: ['botanicals', 'distillery']
   end
 
   # POST /gins
@@ -46,6 +46,6 @@ class Api::V1::GinsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def gin_params
-      params.require(:gin).permit(:gin_name, :alcoholic, :snippet, :description, :abv, distillery_id:[])
+      params.require(:gin).permit(:gin_name, :alcoholic, :snippet, :description, :abv, :distillery_id)
     end
 end

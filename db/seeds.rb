@@ -5,4 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Distillery.create!([{distillery_name: "East London Co"}, {distillery_name: "Plymouth Gin"}, {distillery_name: "Gordon's"}])
+BotanicalsGin.create!(gin_id: 84, botanical_id: 2)
+BotanicalsGin.create!(gin_id: 84, botanical_id: 3)
