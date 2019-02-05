@@ -5,5 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-BotanicalsGin.create!(gin_id: 84, botanical_id: 2)
-BotanicalsGin.create!(gin_id: 84, botanical_id: 3)
+Distillery.create!(distillery_name: "East London Liquor Company", snippet: "Bringing spirits back to the heart of east London", description: "Located between Regeants Canal and Victoria Park in Bow, east London. Whilst the East London Liquor Company primarily make gins, they also do a rum and rye whiskey", website: "http://www.eastlondonliquorcompany.com")
